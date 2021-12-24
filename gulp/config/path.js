@@ -56,9 +56,10 @@ export const path = {
   },
 
   clean: buildFolder,
+  buildFolder: buildFolder,
   srcFolder: srcFolder,
   rootFolder: rootFolder,
-  ftp: "",
+  ftp: `project`,
 };
 
 //   concat = require("gulp-concat"); // Об'єдання файлів

@@ -25,11 +25,13 @@ import { images } from "./gulp/tasks/images.js";
 import { otfToTtf, otfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
 import { svgSprite } from "./gulp/tasks/svgSprite.js";
 import { zip } from "./gulp/tasks/zip.js";
+import { ftp } from "./gulp/tasks/ftp.js";
 
 // Слідкування за змінами в файлах у реальному часі
 function watcher(params) {
   gulp.watch(path.watch.files, copy); //Для files
   gulp.watch(path.watch.html, html); //Для html
+  // gulp.watch(path.watch.html, gulp.series(html,ftp)); //Для html  вивантаження по ftp
   gulp.watch(path.watch.scss, scss); // Для css
   gulp.watch(path.watch.js, js); // Для js
   gulp.watch(path.watch.images, images); // Для img
@@ -39,9 +41,6 @@ function watcher(params) {
   // //gulp.watch([path.watch.libsCss], libsCss); // Для node_modules .css file
   // //gulp.watch([path.watch.libsCss], libsJs); // Для node_modules .js file
 }
-
-// npm run svgSprite
-export { svgSprite };
 
 // Послідовна обробка шрифтів
 const fonts = gulp.series(otfToTtf, otfToWoff, fontsStyle);
@@ -56,10 +55,16 @@ const mainTasks = gulp.series(
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);
 const deployZip = gulp.series(reset, mainTasks, zip);
+const deployFtp = gulp.series(reset, mainTasks, ftp);
+
 
 export { dev };
 export { build };
 export { deployZip };
+export { deployFtp };
+
+// npm run svgSprite
+export { svgSprite };
 
 // Виконування сценарію за замовчуванням
 gulp.task("default", dev);
