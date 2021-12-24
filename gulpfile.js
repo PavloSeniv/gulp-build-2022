@@ -24,6 +24,7 @@ import { js } from "./gulp/tasks/js.js";
 import { images } from "./gulp/tasks/images.js";
 import { otfToTtf, otfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
 import { svgSprite } from "./gulp/tasks/svgSprite.js";
+import { zip } from "./gulp/tasks/zip.js";
 
 // Слідкування за змінами в файлах у реальному часі
 function watcher(params) {
@@ -54,9 +55,11 @@ const mainTasks = gulp.series(
 // Побудова сценаріїв виконування задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);
+const deployZip = gulp.series(reset, mainTasks, zip);
 
 export { dev };
 export { build };
+export { deployZip };
 
 // Виконування сценарію за замовчуванням
 gulp.task("default", dev);
