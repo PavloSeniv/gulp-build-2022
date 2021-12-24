@@ -32,6 +32,7 @@ export const path = {
     //Якщо не  вказати розширення також іх верхнього регістру то можливий варіант не копіювання зображення
     images: `${srcFolder}/img/**/*.+(png|PNG|jpg|JPG|jpeg|JPEG|gif|ico|webp)`,
     svg: `${srcFolder}/img/**/*.svg`,
+    svgicons: `${srcFolder}/svgicons/*.svg`,
 
     // pluginsJs: source_folder + "/plugins/**/*.js",
     // pluginsCss: source_folder + "/plugins/**/*.css",
@@ -48,6 +49,7 @@ export const path = {
     // css: `${srcFolder}/style/**/*.{css,scss,less,sass}`,
     js: [`${srcFolder}/js/**/*.js`],
     images: `${srcFolder}/img/**/*.+(png|PNG|jpg|JPG|gif|ico|svg|webp)`,
+
     // pluginsJs: source_folder + "/plugins/**/*.js",
     // pluginsCss: source_folder + "/plugins/**/*.css",
     // pluginsPhp: source_folder + "/plugins/**/*.php",

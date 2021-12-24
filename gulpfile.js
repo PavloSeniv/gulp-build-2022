@@ -21,6 +21,7 @@ import { scss } from "./gulp/tasks/scss.js";
 import { js } from "./gulp/tasks/js.js";
 import { images } from "./gulp/tasks/images.js";
 import { otfToTtf, otfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
+import { svgSprite } from "./gulp/tasks/svgSprite.js";
 
 // Слідкування за змінами в файлах у реальному часі
 function watcher(params) {
@@ -35,6 +36,9 @@ function watcher(params) {
   // //gulp.watch([path.watch.libsCss], libsCss); // Для node_modules .css file
   // //gulp.watch([path.watch.libsCss], libsJs); // Для node_modules .js file
 }
+
+// npm run svgSprite
+export { svgSprite }
 
 // Послідовна обробка шрифтів
 const fonts = gulp.series(otfToTtf, otfToWoff, fontsStyle);
