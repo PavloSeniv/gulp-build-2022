@@ -11,7 +11,7 @@ const sass = gulpSass(dartSass);
 
 export const scss = () => {
   return app.gulp
-    .src(app.path.src.scss, { sourcemaps: true })
+    .src(app.path.src.scss, { sourcemaps: app.isDev })
     .pipe(
       app.plugins.plumber(
         app.plugins.notify.onError({
@@ -28,22 +28,22 @@ export const scss = () => {
         outputStyle: "expanded", // Для формування файлу не стисненим
       })
     )
-    .pipe(groupCssMediaQueries())
-    .pipe(
+    .pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))
+    .pipe(app.plugins.if(app.isBuild, 
       webpcss({
         webpClass: ".webp",
         noWebpClass: ".no-webp",
       })
-    )
-    .pipe(
+    ))
+    .pipe(app.plugins.if(app.isBuild, 
       autoprefixer({
         grid: true,
         overrideBrowserlist: ["last 3 versions"],
         cascade: true,
       })
-    )
+    ))
     .pipe(app.gulp.dest(app.path.build.css))
-    .pipe(cleanСss())
+    .pipe(app.plugins.if(app.isBuild, cleanСss()))
     .pipe(
       rename({
         extname: ".min.css",

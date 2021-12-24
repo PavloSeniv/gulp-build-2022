@@ -7,6 +7,8 @@ import { plugins } from "./gulp/config/plugins.js";
 
 // Передача значення в глобальну змінну
 global.app = {
+  isBuild: process.argv.includes("--build"),
+  isDev: !process.argv.includes("--build"),
   path: path,
   gulp: gulp,
   plugins: plugins,
@@ -38,16 +40,23 @@ function watcher(params) {
 }
 
 // npm run svgSprite
-export { svgSprite }
+export { svgSprite };
 
 // Послідовна обробка шрифтів
 const fonts = gulp.series(otfToTtf, otfToWoff, fontsStyle);
 // Основі завдання
-const mainTasks =  gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
+const mainTasks = gulp.series(
+  fonts,
+  gulp.parallel(copy, html, scss, js, images)
+);
 
 // Процес виконання
 // Побудова сценаріїв виконування задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const build = gulp.series(reset, mainTasks);
+
+export { dev };
+export { build };
 
 // Виконування сценарію за замовчуванням
 gulp.task("default", dev);
