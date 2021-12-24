@@ -1,24 +1,38 @@
-// //Робота із зображеннями
-// function images() {
-//   return src(path.src.img)
-//     .pipe(
-//       webp({
-//         quality: 70,
-//       })
-//     )
-//     .pipe(dest(path.build.img))
-//     .pipe(src(path.src.img))
-//     .pipe(
-//       imagemin({
-//         progressive: true,
-//         svgoPlugins: [{ remoteViewBox: false }],
-//         interlaced: true,
-//         optimizationLevel: 3, // 0 to 7
-//       })
-//     )
-//     .pipe(dest(path.build.img))
-//     .pipe(browsersync.stream());
-// }
+//Робота із зображеннями
+import webp from "gulp-webp"; // Для перетворення зображень у формат webp
+//Робота із зображеннями
+import imagemin from "gulp-imagemin"; // // Оптимізація зображень
 
-//   imagemin = require("gulp-imagemin"), // Оптимізація зображень
-//   webp = require("gulp-webp"), // Для перетворення зображень у формат webp
+export const images = () => {
+  return app.gulp
+    .src(app.path.src.images)
+    .pipe(
+      app.plugins.plumber(
+        app.plugins.notify.onError({
+          title: "IMAGES",
+          message: "Error: <%= error.message %>",
+        })
+      )
+    )
+    .pipe(app.plugins.newer(app.path.build.images))
+    .pipe(
+      webp({
+        quality: 70,
+      })
+    )
+    .pipe(app.gulp.dest(app.path.build.images))
+    .pipe(app.gulp.src(app.path.src.images))
+    .pipe(app.plugins.newer(app.path.build.images))
+    .pipe(
+      imagemin({
+        progressive: true,
+        svgoPlugins: [{ remoteViewBox: false }],
+        interlaced: true,
+        optimizationLevel: 3, // 0 to 7
+      })
+    )
+    .pipe(app.gulp.dest(app.path.build.images))
+    .pipe(app.gulp.src(app.path.src.svg))
+    .pipe(app.gulp.dest(app.path.build.images))
+    .pipe(app.plugins.browsersync.stream());
+};

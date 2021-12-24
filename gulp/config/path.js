@@ -13,8 +13,7 @@ export const path = {
     html: `${buildFolder}/`,
     css: `${buildFolder}/css/`,
     js: `${buildFolder}/js/`,
-
-    // img: project_folder + "/img/",
+    images: `${buildFolder}/img/`,
     // video: project_folder + "/video/",
     // fonts: project_folder + "/fonts/",
     // pluginsJs: project_folder + "/plugins  /",
@@ -28,19 +27,15 @@ export const path = {
     files: `${srcFolder}/files/**/*.*`,
     html: `${srcFolder}/*.html`,
     // html: `${srcFolder}/*.pug`, // Для pug
-
     scss: `${srcFolder}/scss/style.scss`,
     // css: `${srcFolder}/style/scss/style.scss`,
+    js: [`${srcFolder}/js/app.js`, `${srcFolder}/js/plugins*.js`],
+    //Якщо не  вказати розширення також іх верхнього регістру то можливий варіант не копіювання зображення
+    images: `${srcFolder}/img/**/*.+(png|PNG|jpg|JPG|jpeg|JPEG|gif|ico|webp)`,
+    svg: `${srcFolder}/img/**/*.svg`,
+    fonts: `${srcFolder}/fonts/*.ttf`,
 
-    js: [
-      `${srcFolder}/js/app.js`,
-      `${srcFolder}/js/plugins*.js`,
-    ],
-
-    // //Якщо не  вказати розширення також іх верхнього регістру то можливий варіант не копіювання зображення
-    // img: source_folder + "/img/**/*.+(png|PNG|jpg|JPG|gif|ico|svg|webp)",
     // video: source_folder + "/video/**/*.+(mp4|mp3)",
-    // fonts: source_folder + "/fonts/*.ttf",
     // pluginsJs: source_folder + "/plugins/**/*.js",
     // pluginsCss: source_folder + "/plugins/**/*.css",
     // pluginsPhp: source_folder + "/plugins/**/*.php",
@@ -56,7 +51,8 @@ export const path = {
     scss: `${srcFolder}/scss/style.scss`,
     // css: `${srcFolder}/style/**/*.{css,scss,less,sass}`,
     js: [`${srcFolder}/js/**/*.js`],
-    // img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
+    images: `${srcFolder}/img/**/*.+(png|PNG|jpg|JPG|gif|ico|svg|webp)`,
+
     // video: source_folder + "/video/**/*.+(mp4|mp3)",
     // pluginsJs: source_folder + "/plugins/**/*.js",
     // pluginsCss: source_folder + "/plugins/**/*.css",
