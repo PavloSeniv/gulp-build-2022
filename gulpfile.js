@@ -9,7 +9,7 @@ import { plugins } from "./gulp/config/plugins.js";
 global.app = {
   path: path,
   gulp: gulp,
-  plugins: plugins
+  plugins: plugins,
 };
 
 // Импорт задач
@@ -20,6 +20,7 @@ import { server } from "./gulp/tasks/server.js";
 import { scss } from "./gulp/tasks/scss.js";
 import { js } from "./gulp/tasks/js.js";
 import { images } from "./gulp/tasks/images.js";
+import { otfToTtf, otfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
 
 // Слідкування за змінами в файлах у реальному часі
 function watcher(params) {
@@ -28,19 +29,20 @@ function watcher(params) {
   gulp.watch(path.watch.scss, scss); // Для css
   gulp.watch(path.watch.js, js); // Для js
   gulp.watch(path.watch.images, images); // Для img
-  // gulp.watch([path.watch.video], video); // Для video
   // gulp.watch([path.watch.pluginsJs], pluginsJs); // Для plugins .js file
   // gulp.watch([path.watch.pluginsCss], pluginsCss); // Для plugins .css file
   // gulp.watch([path.watch.pluginsPhp], pluginsPhp); // Для plugins .php file
-  // gulp.watch([path.watch.pdf], pdf); // Для plugins .css file
-  // //gulp.watch([path.watch.pdf], libsCss); // Для node_modules .css file
-  // //gulp.watch([path.watch.pdf], libsJs); // Для node_modules .js file
+  // //gulp.watch([path.watch.libsCss], libsCss); // Для node_modules .css file
+  // //gulp.watch([path.watch.libsCss], libsJs); // Для node_modules .js file
 }
 
-const mainTasks = gulp.parallel(copy, html, scss, js, images);
+// Послідовна обробка шрифтів
+const fonts = gulp.series(otfToTtf, otfToWoff, fontsStyle);
+// Основі завдання
+const mainTasks =  gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
 
 // Процес виконання
-// Побудова сценаріїв виконуваггя задач
+// Побудова сценаріїв виконування задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 
 // Виконування сценарію за замовчуванням

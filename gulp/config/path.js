@@ -14,12 +14,11 @@ export const path = {
     css: `${buildFolder}/css/`,
     js: `${buildFolder}/js/`,
     images: `${buildFolder}/img/`,
-    // video: project_folder + "/video/",
-    // fonts: project_folder + "/fonts/",
+    fonts: `${buildFolder}/fonts/`,
+
     // pluginsJs: project_folder + "/plugins  /",
     // pluginsCss: project_folder + "/plugins/",
     // pluginsPhp: project_folder + "/plugins/",
-    // pdf: project_folder + "/pdf/",
   },
 
   //Папка із початковими файлами
@@ -33,18 +32,15 @@ export const path = {
     //Якщо не  вказати розширення також іх верхнього регістру то можливий варіант не копіювання зображення
     images: `${srcFolder}/img/**/*.+(png|PNG|jpg|JPG|jpeg|JPEG|gif|ico|webp)`,
     svg: `${srcFolder}/img/**/*.svg`,
-    fonts: `${srcFolder}/fonts/*.ttf`,
 
-    // video: source_folder + "/video/**/*.+(mp4|mp3)",
     // pluginsJs: source_folder + "/plugins/**/*.js",
     // pluginsCss: source_folder + "/plugins/**/*.css",
     // pluginsPhp: source_folder + "/plugins/**/*.php",
-    // pdf: source_folder + "/pdf/**/*.pdf",
   },
 
   //Об'єкт  для слідкування за файлами в реальному часі(browserSync)
   watch: {
-    files: `${srcFolder}/files/**/*.*`,
+    files: `${srcFolder}/files/**/*.*+(mp4|mp3|pdf)`,
     html: `${srcFolder}/**/*.html`,
     // html: `${srcFolder}/*.pug`, // Для pug
 
@@ -52,12 +48,9 @@ export const path = {
     // css: `${srcFolder}/style/**/*.{css,scss,less,sass}`,
     js: [`${srcFolder}/js/**/*.js`],
     images: `${srcFolder}/img/**/*.+(png|PNG|jpg|JPG|gif|ico|svg|webp)`,
-
-    // video: source_folder + "/video/**/*.+(mp4|mp3)",
     // pluginsJs: source_folder + "/plugins/**/*.js",
     // pluginsCss: source_folder + "/plugins/**/*.css",
     // pluginsPhp: source_folder + "/plugins/**/*.php",
-    // pdf: source_folder + "/pdf/**/*.pdf",
   },
 
   clean: buildFolder,
@@ -68,13 +61,6 @@ export const path = {
 
 //   concat = require("gulp-concat"); // Об'єдання файлів
 // //uncss = require("gulp-uncss"); // Видалення невикористаних правил css
-
-
-// function video(params) {
-//   return src(path.src.video)
-//     .pipe(dest(path.build.video))
-//     .pipe(browsersync.stream());
-// }
 
 // function pluginsJs(params) {
 //   return src(path.src.pluginsJs)
@@ -107,10 +93,6 @@ export const path = {
 //   return src(path.src.pluginsPhp)
 //     .pipe(dest(path.build.pluginsPhp))
 //     .pipe(browsersync.stream());
-// }
-
-// function pdf(params) {
-//   return src(path.src.pdf).pipe(dest(path.build.pdf));
 // }
 
 // function libsCss(params) {
