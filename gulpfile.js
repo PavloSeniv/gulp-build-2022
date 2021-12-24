@@ -1,5 +1,5 @@
 // Основний модуль
-import gulp from "gulp";
+import gulp from "gulp"; //Ініціалізація gulp
 // Імпорт шляхів
 import { path } from "./gulp/config/path.js";
 // Імпорт спільних плагінів
@@ -17,12 +17,13 @@ import { copy } from "./gulp/tasks/copy.js";
 import { reset } from "./gulp/tasks/reset.js";
 import { html } from "./gulp/tasks/html.js";
 import { server } from "./gulp/tasks/server.js";
+import { scss } from "./gulp/tasks/scss.js";
 
 // Слідкування за змінами в файлах у реальному часі
 function watcher(params) {
   gulp.watch(path.watch.files, copy); //Для files
   gulp.watch(path.watch.html, html); //Для html
-  // gulp.watch([path.watch.css], css); // Для css
+  gulp.watch(path.watch.scss, scss); // Для css
   // gulp.watch([path.watch.js], js); // Для js
   // gulp.watch([path.watch.img], images); // Для img
   // gulp.watch([path.watch.video], video); // Для video
@@ -34,7 +35,7 @@ function watcher(params) {
   // //gulp.watch([path.watch.pdf], libsJs); // Для node_modules .js file
 }
 
-const mainTasks = gulp.parallel(copy, html);
+const mainTasks = gulp.parallel(copy, html, scss);
 
 // Процес виконання
 // Побудова сценаріїв виконуваггя задач

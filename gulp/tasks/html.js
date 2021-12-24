@@ -1,5 +1,5 @@
 //Копіювання index.html з src до dist(якщо папки немає, gulp створить сам)
-import fileInclude from "gulp-file-include";
+import fileInclude from "gulp-file-include"; // Для об'єднання декількох html файлів в єдиний index.html
 import webpHtmlNoSvg from "gulp-webp-html-nosvg";
 import versionNumber from "gulp-version-number";
 import pug from "gulp-pug";

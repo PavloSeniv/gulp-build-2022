@@ -11,6 +11,7 @@ export const path = {
   build: {
     files: `${buildFolder}/files/`,
     html: `${buildFolder}/`,
+    css: `${buildFolder}/css/`,
 
     // css: project_folder + "/css/",
     // js: project_folder + "/js/",
@@ -29,7 +30,9 @@ export const path = {
     html: `${srcFolder}/*.html`,
     // html: `${srcFolder}/*.pug`, // Для pug
 
-    // css: source_folder + "/style/scss/style.scss",
+    scss: `${srcFolder}/scss/style.scss`,
+    // css: `${srcFolder}/style/scss/style.scss`,
+
     // js: [
     //   source_folder + "/js/main_script.js",
     //   source_folder + "/js/plugins*.js",
@@ -50,8 +53,9 @@ export const path = {
     html: `${srcFolder}/**/*.html`,
     // html: `${srcFolder}/*.pug`, // Для pug
 
-    // html__page: source_folder + "html/**/*.html",
-    // css: source_folder + "/style/**/*.{css,scss,less,sass}",
+    scss: `${srcFolder}/scss/style.scss`,
+    // css: `${srcFolder}/style/**/*.{css,scss,less,sass}`,
+
     // js: source_folder + "/js/**/*.js",
     // img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
     // video: source_folder + "/video/**/*.+(mp4|mp3)",
@@ -67,22 +71,10 @@ export const path = {
   ftp: "",
 };
 
-// //Оголошуємо всі плагіни
-// let { src, dest } = require("gulp"),
-//   gulp = require("gulp"), //Ініціалізація gulp
-//   browsersync = require("browser-sync").create(), // Для плагіна browser-sync
-//   fileinclude = require("gulp-file-include"), // Для об'єднання декількох html файлів в єдиний index.html
-//   del = require("del"),
-//   scss = require("gulp-sass"),
-//   autoprefixer = require("gulp-autoprefixer"),
-//   group_media = require("gulp-group-css-media-queries"), // Для збирання всіх медіа запитів в кінець файлу
-//   clean_css = require("gulp-clean-css"), // Очищення та зжимання css файлу
-//   rename = require("gulp-rename"), // Для перейменування css файлу(переважно .min.css)
 //   uglify = require("gulp-uglify-es").default, // Оптимізація js
 //   imagemin = require("gulp-imagemin"), // Оптимізація зображень
 //   webp = require("gulp-webp"), // Для перетворення зображень у формат webp
 //   webphtml = require("gulp-webp-html"), // Інтеграція webp в html
-//   webpcss2 = require("gulp-webp-css"), // Інтеграція webp в css(правильний варіант)
 //   svgSprite = require("gulp-svg-sprite"), // Створення svg спрайтів
 //   ttf2woff = require("gulp-ttf2woff"), // Конвертація шрифтів
 //   ttf2woff2 = require("gulp-ttf2woff2"), // Конвертація шрифтів
@@ -90,42 +82,6 @@ export const path = {
 //   concat = require("gulp-concat"); // Об'єдання файлів
 // //uncss = require("gulp-uncss"); // Видалення невикористаних правил css
 
-
-// function css() {
-//   return (
-//     src(path.src.css)
-//       //Не потрібно для scss
-//       .pipe(fileinclude())
-//       //Для scss файлів
-//       .pipe(
-//         scss({
-//           outputStyle: "expanded", // Для формування файлу не стисненим
-//         })
-//       )
-//       .pipe(
-//         autoprefixer({
-//           overrideBrowserlist: ["last 5 versions"],
-//           cascade: true,
-//         })
-//       )
-//       .pipe(group_media())
-//       .pipe(webpcss2())
-//       // .pipe(
-//       //   uncss({
-//       //     html: ["index.html", "/**/*.html"],
-//       //   })
-//       // )
-//       .pipe(dest(path.build.css))
-//       .pipe(clean_css())
-//       .pipe(
-//         rename({
-//           extname: ".min.css",
-//         })
-//       )
-//       .pipe(dest(path.build.css))
-//       .pipe(browsersync.stream())
-//   );
-// }
 
 // //Копіювання .js з src до dist(якщо папки немає, вона створится gulp)
 // function js() {
