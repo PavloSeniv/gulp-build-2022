@@ -1,15 +1,23 @@
-let SliderHome = new Swiper('.swiper-container', {
-//  Стрілки навігації
+// import Swiper bundle with all modules installed
+import Swiper from "swiper/bundle";
+
+// import styles bundle
+// import "swiper/css/bundle";
+
+export function swiperHome(params) {
+  // init Swiper:
+  const SliderHome = new Swiper(".swiper-container", {
+    //  Стрілки навігації
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
 
-// Навігація
-// Буллети, дане положення, прогресбар
+    // Навігація
+    // Буллети, дане положення, прогресбар
     pagination: {
-        el: '.swiper-pagination',
-        /*
+      el: ".swiper-pagination",
+      /*
         // Буллети
         type: 'bullets',
         clickable: true,
@@ -21,7 +29,7 @@ let SliderHome = new Swiper('.swiper-container', {
         },
         */
 
-        /*
+      /*
         // Фракция
         type: 'fraction',
         // Кастомний вивід фракціЇ
@@ -32,25 +40,23 @@ let SliderHome = new Swiper('.swiper-container', {
         },
         */
 
-
-// Прогрессбар
-        type: 'progressbar'
-
+      // Прогрессбар
+      type: "progressbar",
     },
 
-// Скроллбар
+    // Скроллбар
     scrollbar: {
-        el: '.swiper-scrollbar',
-// Можливість перетягування скролу
-        draggable: false,
+      el: ".swiper-scrollbar",
+      // Можливість перетягування скролу
+      draggable: false,
     },
 
-// Включення / виключення
-// перетягування на пк
+    // Включення / виключення
+    // перетягування на пк
     simulateTouch: true,
-// Чутливість свайпу
+    // Чутливість свайпу
     touchRatio: 5,
-// Кут роботи свайпу/перетягування
+    // Кут роботи свайпу/перетягування
     touchAngle: 45,
 
     /*
@@ -58,26 +64,25 @@ let SliderHome = new Swiper('.swiper-container', {
     grabCursor: true,
     */
 
-
-// Переключення при кліку на слайд
+    // Переключення при кліку на слайд
     slideToClickedSlide: false,
 
-// Навігація по хешу
+    // Навігація по хешу
     hashNavigation: {
-// Відстужувати стан
-        watchState: true,
+      // Відстужувати стан
+      watchState: true,
     },
 
-// Управління клавіатурою
+    // Управління клавіатурою
     keyboard: {
-// Включити / виключити
-        enabled: true,
-// Включити / виключити
-// коли слайдер в межах вьюпорта
-        onlyInViewport: true,
-// Включити / виключити
-// управління клавішами pageUp, pageDown
-        pageUpDown: true,
+      // Включити / виключити
+      enabled: true,
+      // Включити / виключити
+      // коли слайдер в межах вьюпорта
+      onlyInViewport: true,
+      // Включити / виключити
+      // управління клавішами pageUp, pageDown
+      pageUpDown: true,
     },
 
     /*
@@ -95,84 +100,69 @@ let SliderHome = new Swiper('.swiper-container', {
     autoHeight: true,
     */
 
- 
-    slidesPerView:3, // | 'auto' | 2.5
-  
+    slidesPerView: 3, // | 'auto' | 2.5
 
     /*
     // Відключення функціоналу, якщо слайдів менше ніж потрібно
     watchOverflow: true,
     */
 
-   
     // // Відступ між слайдами
     // spaceBetween: 10,
-  
-
 
     // К-сть прогорнутих слайдів
     slidesPerGroup: 1,
- 
 
     /*
     // Активний слайд по центру
     centeredSlides: true,
     */
 
-
     // Стратовий слайд
     initialSlide: 1,
-   
 
     /*
     // Мультирядність
     slidesPerColumn: 2,
     */
 
-// Бескінечність
-     loop: true,
+    // Бескінечність
+    loop: true,
 
-
-// К-сть дубльованих слайдів
-  loopedSlides: 3,
-
+    // К-сть дубльованих слайдів
+    loopedSlides: 3,
 
     /*
     freeMode: true,
     */
 
-
-// Атопрокрутка
+    // Атопрокрутка
     autoplay: {
-// Пауза між прокртукою
-        delay: 5000,
-// Закінчити на останньому слайді
-        stopOnLastSlide: false,
-// Відключити після ручного управління
-        disableOnInteraction: false
+      // Пауза між прокртукою
+      delay: 5000,
+      // Закінчити на останньому слайді
+      stopOnLastSlide: false,
+      // Відключити після ручного управління
+      disableOnInteraction: false,
     },
 
-
-// Скорость
+    // Скорость
     speed: 2000,
 
-// Вертикальний слайдер
-    direction: 'horizontal',
+    // Вертикальний слайдер
+    direction: "horizontal",
 
-    
     // Ефекти перемикання слайдів
     // Перегортування
     // effect: 'slide', // Ефект по дефолту
-   
 
-
-// // Заміна прозорості
-//     effect: 'fade',
-// // Доповнення до fade
-//     fadeEffect: {
-// // Паралельна зміна прозорості
-//         crossFade: true
-//     },
+    // // Заміна прозорості
+    //     effect: 'fade',
+    // // Доповнення до fade
+    //     fadeEffect: {
+    // // Паралельна зміна прозорості
+    //         crossFade: true
+    //     },
 
     /*
     // Переворот
@@ -199,18 +189,16 @@ let SliderHome = new Swiper('.swiper-container', {
     },
     */
 
-   
     // Потік
-    effect: 'coverflow',
+    effect: "coverflow",
     coverflowEffect: {
-    // Кут
-    rotate: 30,
-    // Накладання
-    stretch: 50,
-    //Тінь
-    slideShadows: false,
+      // Кут
+      rotate: 30,
+      // Накладання
+      stretch: 50,
+      //Тінь
+      slideShadows: false,
     },
-
 
     /*
     // Брейкпоінти (адаптив)
@@ -282,15 +270,14 @@ let SliderHome = new Swiper('.swiper-container', {
     },
     */
 
-// Доступність
+    // Доступність
     a11y: {
-        prevSlideMessage: 'Previous slide',
-        nextSlideMessage: 'Next slide',
+      prevSlideMessage: "Previous slide",
+      nextSlideMessage: "Next slide",
     },
+  });
 
-});
-
-/*
+  /*
 // Слайдер в слайдері
 new Swiper('.image-in-slider', {
 grabCursor: true,
@@ -309,8 +296,7 @@ nested: true,
 });
 */
 
-
-/*
+  /*
 let sliderPhoto = document.querySelector('.swiper-wrapper');
 
 sliderPhoto.addEventListener("mouseenter", function (e) {
@@ -322,4 +308,4 @@ SliderHome.autoplay.start();
 sliderPhoto.addEventListener("mouseleave", function (e) {
 sliderPhoto.autoplay.stop();
 });*/
-
+}
