@@ -220,12 +220,11 @@ body._lock {
 
 .menu__body {
   width: 100%;
-  display: -ms-grid;
   display: grid;
   -moz-column-gap: 24px;
        column-gap: 24px;
   align-items: center;
-      grid-template-areas: "menu__nav log-in-out";
+  grid-template-areas: "menu__nav log-in-out";
   justify-items: start;
   align-content: space-between;
 }
@@ -598,7 +597,7 @@ body {
 }
 
 .main-scene__title {
-  font-size: calc(23px + 32 * ((100vw - 320px) / 1600));
+  font-size: calc(23px + 32 * (100vw - 320px) / 1600);
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
@@ -653,7 +652,6 @@ body {
   flex: 0 0 50%;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -1021,16 +1019,6 @@ body {
   opacity: 0.5;
 }
 
-.subscripe__input:-ms-input-placeholder {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
-  color: #0f1f1c;
-  opacity: 0.5;
-}
-
 .subscripe__input::placeholder {
   font-family: Poppins;
   font-style: normal;
@@ -1131,13 +1119,10 @@ body {
 
   .menu__body {
     z-index: 2;
-    display: -ms-grid;
     display: grid;
     grid-gap: 14px;
-        grid-template-areas: "menu__nav" "log-in-out";
-    -ms-grid-rows: 1fr 14px 0.3fr;
+    grid-template-areas: "menu__nav" "log-in-out";
     grid-template-rows: 1fr 0.3fr;
-    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     padding: 0 0 24px 0;
   }

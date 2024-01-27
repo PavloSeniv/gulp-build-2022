@@ -34,6 +34,10 @@ Install dependencies
   npm install
 ```
 
+```bash
+  npm install del@6
+```
+
 Start the gulp developer
 
 ```bash

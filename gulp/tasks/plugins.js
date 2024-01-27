@@ -1,5 +1,5 @@
-import uglify from "gulp-uglify-es"; // Оптимізація js
-const uglifyFunc = uglify.default; //  Fix bug in console
+import uglify from "gulp-uglify"; // Оптимізація js
+const uglifyFunc = uglify; //  Fix bug in console
 import rename from "gulp-rename"; // Для перейменування файлу(переважно .min.*)
 import cleanCss from "gulp-clean-css"; // Очищення та зжимання css файлу
 
